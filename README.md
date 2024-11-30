@@ -89,7 +89,7 @@ Each folder contains the implementation for the corresponding backend platform.
 ### Prerequisites
 
 - Node.js and npm installed
-- Account and project set up in all five BaaS platforms
+- Account and project set up in all five BaaS platforms (Except for Pocketbase)
 
 ### Installation
 
