@@ -52,11 +52,11 @@ This project is designed to compare and demonstrate the capabilities of various 
 
 ```
 .
-├── todo-app-pocketbase/
-├── todo-app-supabase/
-├── todo-app-appwrite/
-├── todo-app-firebase/
-├── todo-app-realm-mongodb/
+├── todo-app-pocketbase-next/
+├── todo-app-supabase-next/
+├── todo-app-appwrite-next/
+├── todo-app-firebase-next/
+├── todo-app-realm-mongodb-next/
 └── README.md
 ```
 
