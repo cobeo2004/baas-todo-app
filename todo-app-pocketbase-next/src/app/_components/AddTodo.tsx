@@ -1,33 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { TodoInput, Todo } from "@/lib/types";
-import { initialTodos } from "@/lib/data";
+import { TodoInput } from "@/lib/types";
+import { pb } from "@/lib/pocketbase";
 
 export function AddTodo() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  const queryClient = useQueryClient();
-
   const addTodoMutation = useMutation({
     mutationFn: async (newTodo: TodoInput) => {
-      return Promise.resolve().then(() => {
-        const todo: Todo = {
-          ...newTodo,
-          id: Math.random().toString(36).substr(2, 9),
-          completed: false,
-        };
-        initialTodos.push(todo);
-      });
+      return await pb.collection("todo").create(newTodo);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
       setTitle("");
       setDescription("");
       setDueDate("");
