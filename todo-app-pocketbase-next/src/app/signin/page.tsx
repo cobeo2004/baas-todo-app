@@ -15,7 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaGoogle, FaGithub, FaDiscord } from "react-icons/fa";
 
 const SignIn: NextPage = () => {
-  const { googleSignIn, githubSignIn, setUserData, discordSignIn } =
+  const { googleSignIn, githubSignIn, setUserData, discordSignIn, user } =
     usePbAuth();
 
   const router = useRouter();
@@ -24,6 +24,10 @@ const SignIn: NextPage = () => {
     setUserData(user);
     router.replace("/");
   };
+
+  if (user) {
+    router.replace("/");
+  }
 
   useEffect(() => {
     const localAuthProvider: AuthProviderInfo = JSON.parse(
