@@ -7,7 +7,8 @@ import type { RealtimeConfig, RealtimeResponse } from "@/lib/types/hooks.types";
 
 export function useRealtimeSupabase<
   T extends keyof Database["public"]["Tables"],
->(collection: T, config: RealtimeConfig<T>): RealtimeResponse {
+  S extends keyof Database["public"]["Tables"]["todos"]["Row"],
+>(collection: T, config: RealtimeConfig<T, S>): RealtimeResponse {
   const supabase = createClient();
   const [data, setData] = React.useState<Todo[] | null>([]);
 
@@ -18,6 +19,7 @@ export function useRealtimeSupabase<
         .from(collection)
         .select("*")
         .eq("user_id", config.user?.id ?? "");
+
       if (data) {
         setData(data as Todo[]);
       }

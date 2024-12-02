@@ -10,8 +10,12 @@ export type QueryOptions<T extends keyof Database["public"]["Tables"]> = Omit<
   "queryKey" | "queryFn"
 >;
 
-export type RealtimeConfig<T extends keyof Database["public"]["Tables"]> = {
+export type RealtimeConfig<
+  T extends keyof Database["public"]["Tables"],
+  S extends keyof Database["public"]["Tables"][T]["Row"],
+> = {
   user?: User;
+  select?: S;
   topic?: string;
   queryOptions?: QueryOptions<T>;
 };
