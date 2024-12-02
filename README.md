@@ -41,6 +41,7 @@ This project is designed to compare and demonstrate the capabilities of various 
 3. **Appwrite**
 4. **Firebase**
 5. **Realm MongoDB**
+6. **TRPC (Extra)**
 
 ### Storage
 
@@ -54,6 +55,7 @@ This project is designed to compare and demonstrate the capabilities of various 
 .
 ├── todo-app-pocketbase-next/
 ├── todo-app-supabase-next/
+├── todo-app-trpc-next/
 ├── todo-app-appwrite-next/
 ├── todo-app-firebase-next/
 ├── todo-app-realm-mongodb-next/
